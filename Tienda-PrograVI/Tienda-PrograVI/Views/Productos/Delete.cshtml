@@ -1,0 +1,24 @@
+﻿@model Tienda_PrograVI.Models.Producto
+<h1️>Eliminar Producto</h1️>
+<h3️>¿Está seguro que desea eliminar este Producto?</h3️>
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2️">Nombre</dt>
+        <dd class="col-sm-1️0">@Model.Nombre</dd>
+        <dt class="col-sm-2️">Descripcion</dt>
+        <dd class="col-sm-1️0">@Model.Descripcion</dd>
+        <dt class="col-sm-2️">Precio</dt>
+        <dd class="col-sm-1️0">@Model.Precio</dd>
+        <dt class="col-sm-2️">Stock</dt>
+        <dd class="col-sm-1️0">@Model.Stock</dd>
+        <dt class="col-sm-2️">Id_categoria</dt>
+
+    </dl>
+</div>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id_Categoria" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
