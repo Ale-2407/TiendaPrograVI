@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Tienda_PrograVI.Models.Cliente>
+@{
+ ViewData["Title"] = "Listado de Clientes";
+}
+<h1>Cliente</h1>
+<p>
+ <a asp-action="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table id="tablaClientes" class="display table table-striped">
+ <thead>
+ <tr>
+ <th>Nombre</th>
+ <th>Correo</th>
+  <th>Contraseña</th>
+ <th>Direccion</th>
+ <th>Acciones</th>
+ </tr>
+ </thead>
+ <tbody>
+ @foreach (var cliente in Model)
+ {
+ <tr>
+ <td>@cliente.Nombre</td>
+ <td>@cliente.Correo</td>
+ <td>@cliente.Contraseña</td>
+   <td>@cliente.Direccion</td>
+ <td>
+ <a asp-action="Edit" asp-route-id="@cliente.Id_cliente" class="btn btn-sm btnwarning">Editar</a>
+ <a asp-action="Delete" asp-route-id="@cliente.Id_cliente" class="btn btn-sm btndanger">Eliminar</a>
+ </td>
+ </tr>
+ }
+ </tbody>
+</table>
+@section Scripts {
+ <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+ <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+ <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+rel="stylesheet" />
+ <script>
+ $(document).ready(function () {
+ $('#tablaClientes').DataTable({
+ language: {
+ url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
+ }
+ });
+ });
+ </script>
+}

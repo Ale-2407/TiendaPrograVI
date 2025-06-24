@@ -1,0 +1,22 @@
+﻿@model Tienda_PrograVI.Models.Cliente
+<h1️>Eliminar Cliente</h1️>
+<h3️>¿Está seguro que desea eliminar este cliente?</h3️>
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2️">Nombre</dt>
+        <dd class="col-sm-1️0">@Model.Nombre</dd>
+        <dt class="col-sm-2️">Correo</dt>
+        <dd class="col-sm-1️0">@Model.Correo</dd>
+                <dt class="col-sm-2️">Contraseña</dt>
+        <dd class="col-sm-1️0">@Model.Contraseña</dd>
+        <dt class="col-sm-2️">Direccion</dt>
+        <dd class="col-sm-1️0">@Model.Direccion</dd>
+    </dl>
+</div>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id_cliente" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
