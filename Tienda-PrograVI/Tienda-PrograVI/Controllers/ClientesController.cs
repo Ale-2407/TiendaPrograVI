@@ -3,6 +3,7 @@ using Tienda_PrograVI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Tienda_PrograVI.Controllers
 {
     public class ClientesController : Controller
@@ -91,10 +92,23 @@ namespace Tienda_PrograVI.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        private void CargarCategorias(int? seleccionada = null)
+        {
+            ViewData["Categorias"] = new SelectList(
+                _context.Categoria.ToList(),
+                "Id_categoria",         
+                "Tipo_categoria",        
+                seleccionada
+            );
+        }
+
         private bool ClienteExists(int id)
         {
             return _context.Cliente.Any(e => e.Id_cliente == id);
         }
+
+
 
     }
 }

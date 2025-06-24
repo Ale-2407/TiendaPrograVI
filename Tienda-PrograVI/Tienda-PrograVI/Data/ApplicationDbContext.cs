@@ -10,5 +10,15 @@ namespace Tienda_PrograVI.Data
         }
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Producto> Producto{ get; set; }
+        public DbSet<Categoria> Categoria{ get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Producto>()
+                .HasOne(p => p.Categoria)
+                .WithMany(c => c.Producto)
+                .HasForeignKey(p => p.Id_categoria);
+        }
+
     }
 }
