@@ -63,7 +63,6 @@ namespace Tienda_PrograVI.Controllers
                     else
                         throw;
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(producto);
         }
